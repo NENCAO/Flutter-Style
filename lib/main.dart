@@ -1,7 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'style_card_story.dart';
+import 'package:flutter_story_app/style_music.dart';
+import 'package:flutter_story_app/style_swiper_pic.dart';
 
 
 void main() => runApp(MyApp());
@@ -34,11 +35,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2d3447),
+      backgroundColor: Colors.white,
 
       body: ListView(
           children: <Widget>[
-            StyleStoryCard(),
+            //HorizontalSwipeCard(),
+            //SizedBox(height: 50,),
+            //HorizontalSwipeCard2(),
+            MusicCover(),
           ],
         ),
       );
