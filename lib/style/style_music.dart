@@ -1,19 +1,22 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_story_app/test_pic.dart';
 import 'package:fluttery_seekbar/fluttery_seekbar.dart';
 
-class MusicCover extends StatefulWidget{
-  MusicCover({Key key, this.title}) : super(key: key);
+
+
+//带进度的圆
+class MusicCoverCircle extends StatefulWidget{
+  MusicCoverCircle({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   _MusicCoverPageState createState() => _MusicCoverPageState();
 }
 
-
-class _MusicCoverPageState extends State<MusicCover> {
-
+class _MusicCoverPageState extends State<MusicCoverCircle> {
+  //进度百分比
   double _thumbPercent = 0.4;
 
   Widget _buildRadialSeekBar(){
@@ -43,14 +46,16 @@ class _MusicCoverPageState extends State<MusicCover> {
     );
   }
 
-
+  //圆的大小
+  double _height = 250.0;
+  double _width = 250.0;
 
   @override
   Widget build(BuildContext context) {
 
     return Container(
-      height: 250,
-      width:  250,
+      height: _height,
+      width:  _width,
       child: Stack(
         children: <Widget>[
           Container(
@@ -58,8 +63,21 @@ class _MusicCoverPageState extends State<MusicCover> {
               color: Colors.blueAccent.withOpacity(0.5),
               shape: BoxShape.circle,
             ),
-            child: _buildRadialSeekBar(),
-          )
+            child: Padding(
+              //设置轨道边距
+              padding: EdgeInsets.all(10),
+              child: _buildRadialSeekBar(),
+            )
+          ),
+          Center(
+            child: Container(
+              width: _width - 50,
+              height: _height - 50,
+              child: ClipOval(
+                child: Image.network(images[0],fit: BoxFit.cover,),
+              ),
+            ),
+          ),
         ],
       ),
     );

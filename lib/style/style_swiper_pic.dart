@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'test_pic.dart';
+import '../test_pic.dart';
 
 //依赖 flutter_swiper插件
 
